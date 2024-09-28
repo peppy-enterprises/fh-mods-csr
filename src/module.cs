@@ -149,11 +149,13 @@ public unsafe class CSRModule : FhModule {
         draw_text(0, FhCharset.Us.to_bytes($"Event: {event_name}"), x: 430, y: 15, color: 0x00, 0, scale: 0.5f, 0);
 
         List<u8> works = new();
-        byte[] head = FhCharset.Us.to_bytes("Recent Signal Targets:\n");
+        byte[] head = FhCharset.Us.to_bytes("Recent Signal Targets:");
 
         for (i32 i = 0; i < head.Length; i++) {
             works.Add(head[i]);
         }
+
+        works.Add(0x2);
 
         const u64 colors = 0x7040603050;
         for (i32 i = 0; i < rew.Count; i++) {
