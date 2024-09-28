@@ -109,7 +109,6 @@ public unsafe class CSRModule : FhModule {
         for (i32 i = 0; i < rew.Count; i++) {
             var o = rew[i];
             if (o.work_id == work_id && o.entry_id == entry_id) {
-                o.entry_id = entry_id;
                 o.last_updated = 0;
                 return;
             }
@@ -148,6 +147,9 @@ public unsafe class CSRModule : FhModule {
         string event_name = Marshal.PtrToStringAnsi((isize)get_event_name(*(u32*)Globals.event_id))!;
         draw_text(0, FhCharset.Us.to_bytes($"Event: {event_name}"), x: 430, y: 15, color: 0x00, 0, scale: 0.5f, 0);
 
+        draw_text(0, FhCharset.Us.to_bytes($"Map|Spawn: {Globals.save_data->current_room_id}|{Globals.save_data->current_spawnpoint}"),
+                  x: 430, y: 25, color: 0x00, 0, scale: 0.5f, 0);
+
         List<u8> works = new();
         byte[] head = FhCharset.Us.to_bytes("Recent Signal Targets:");
 
@@ -176,7 +178,7 @@ public unsafe class CSRModule : FhModule {
             if (i % 2 == 1) works.Add(0x2);
         }
 
-        draw_text(0, works.ToArray(), x: 430, y: 25, color: 0x00, 0, scale: 0.5f, 0);
+        draw_text(0, works.ToArray(), x: 430, y: 35, color: 0x00, 0, scale: 0.5f, 0);
     }
 
     public override void post_update() {
