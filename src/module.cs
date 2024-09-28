@@ -108,7 +108,7 @@ public unsafe class CSRModule : FhModule {
         // Was it already executed recently?
         for (i32 i = 0; i < rew.Count; i++) {
             var o = rew[i];
-            if (o.work_id == work_id) {
+            if (o.work_id == work_id && o.entry_id == entry_id) {
                 o.entry_id = entry_id;
                 o.last_updated = 0;
                 return;
