@@ -28,6 +28,7 @@
 
     <!-- SHARED FILE LINKS -->
     <ItemGroup>
+        <Compile Include="../corelib/typedefs.cs" Link="src/_typedefs.cs" />
         <None Include="$(SolutionDir).editorconfig" Link=".editorconfig" />
     </ItemGroup>
 
