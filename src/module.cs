@@ -4,14 +4,12 @@ using Fahrenheit.Events;
 using System.IO;
 using System.Runtime.InteropServices;
 
-using FhXCall = Fahrenheit.FFX.FhCall;
-
 namespace Fahrenheit.Mods.CSR;
 
 [FhLoad(FhGameId.FFX)]
 public unsafe class CutsceneRemoverModule : FhModule {
     public static char* get_event_name(int event_id)
-        => FhXCall.AtelGetEventName.fnptr!((uint)event_id);
+        => FFX.FhCall.AtelGetEventName.fnptr!((uint)event_id);
 
     public delegate void CsrEvent(byte* code_ptr);
 
@@ -20,11 +18,11 @@ public unsafe class CutsceneRemoverModule : FhModule {
     public override bool init(FhModContext mod_context, FileStream global_state_file) {
         Removers.init();
 
-        return FhXCall.AtelEventSetUp.hook(this, csr_event);
+        return FFX.FhCall.AtelEventSetUp.hook(this, csr_event);
     }
 
     public void csr_event(int event_id) {
-        FhXCall.AtelEventSetUp.chain_from(csr_event).fnptr!(event_id);
+        FFX.FhCall.AtelEventSetUp.chain_from(csr_event).fnptr!(event_id);
 
         string event_name = Marshal.PtrToStringAnsi((nint)get_event_name(event_id))!;
         if (removers.TryGetValue(event_name, out CsrEvent? remover)) {
