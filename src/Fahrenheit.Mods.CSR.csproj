@@ -1,0 +1,13 @@
+﻿<Project Sdk="Fahrenheit.Sdk/1.0.0-alpha11">
+    <PropertyGroup>
+        <AssemblyName>fhcsr</AssemblyName>
+        <AssemblyTitle>Cutscene Remover</AssemblyTitle>
+        <Product>Cutscene Remover</Product>
+        <Description>Automatically skip cutscenes, getting right to the gameplay! Highly configurable.\nBased on CSR 1.X made by the speedrunning community</Description>
+        <Version>2.0.0-alpha</Version>
+        <Authors>The Fahrenheit contributors</Authors>
+        <RepositoryType>git</RepositoryType>
+        <RepositoryUrl>https://github.com/fahrenheit-crew/fh-mods-csr</RepositoryUrl>
+        <FhManifestFlags>NONE</FhManifestFlags>
+    </PropertyGroup>
+</Project>
