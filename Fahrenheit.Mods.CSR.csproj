@@ -1,7 +1,0 @@
-﻿<Project Sdk="Fahrenheit.Sdk/1.0.0-alpha08">
-    <PropertyGroup>
-        <AssemblyName>fhcsr</AssemblyName>
-        <AssemblyTitle>Fahrenheit port of the Cutscene Remover for Final Fantasy X/X-2</AssemblyTitle>
-        <Product>Fahrenheit port of the Cutscene Remover for Final Fantasy X/X-2</Product>
-    </PropertyGroup>
-</Project>
